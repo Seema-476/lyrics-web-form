@@ -177,7 +177,7 @@ const LyricsForm = () => {
             </div>
             <p className="font-inter font-normal text-base text-gray md:text-center pt-[18px]">
               Don’t have an account?{" "}
-              <span className="text-blue font-normal text-base">Sign up</span>
+              <span className="text-blue font-normal text-base pl-[10px]">Sign up</span>
             </p>
           </form>
         </div>

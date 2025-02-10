@@ -61,30 +61,27 @@ const Dashboard = () => {
         </button>
       </div>
       <div className="w-full pt-20 h-screen justify-center flex items-center">
-        <div className="bg-blue-300 max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0">
+        <div className="max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0 z-50">
           <button
             onClick={handleOpen}
             className="md:hidden max-md:size-6 relative !z-50 max-md:flex max-md:justify-between max-md:flex-col overflow-hidden"
           >
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 bg-gray ${
-                open === true ? "translate-x-10" : ""
+              className={`flex w-6 h-0.5 transition-all duration-300 bg-red-400 ${
+                open === true ? "translate-x-10 bg-red-400" : ""
               }`}
             ></span>
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 relative bg-gray after:absolute after:w-full after:h-full after:bg-gray after:left-0 after:top-0 after:transition-all after:duration-300 ${
+              className={`flex w-6 h-0.5 transition-all duration-300 relative bg-gray after:absolute after:w-full after:h-full after:bg-red-400 after:left-0 after:top-0 after:transition-all after:duration-300 ${
                 open === true ? "rotate-45 after:rotate-90 bg-red-400" : ""
               }`}
             ></span>
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 bg-gray ${
-                open === true ? "-translate-x-10" : ""
+              className={`flex w-6 h-0.5 transition-all duration-300 bg-red-400 ${
+                open === true ? "-translate-x-10 bg-red-400" : ""
               }`}
             ></span>
           </button>
-          <h1 className="text-white font-semibold font-inter text-3xl max-md:text-2xl">
-            Welcome to Dashboard
-          </h1>
         </div>
         {page === "button-1" ? (
           <EmplementQuestion />

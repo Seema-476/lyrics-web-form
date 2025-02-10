@@ -1,11 +1,9 @@
-import Dashboard from "@/components/Dashboard";
-import UploadImages from "@/components/UploadImage";
+import LyricsForm from "@/components/about/LyricsForm";
 
 export default function Home() {
   return (
     <>
-    <Dashboard/>
-    <UploadImages/>
+    <LyricsForm/>
     </>
   );
 }

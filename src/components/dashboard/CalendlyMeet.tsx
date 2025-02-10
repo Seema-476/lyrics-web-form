@@ -9,8 +9,7 @@ const CalendlyMeet = () => {
     <div className="flex justify-center items-center py-12">
       <button
         onClick={handelClick}
-        className="hover:bg-blue-600 text-3xl bg-gray hover:bg-slate-400 duration-500 text-white font-bold py-4 px-8 mt-4 rounded-xl transition duration-300"
-      >
+        className="md:text-4xl text-xl bg-gray hover:bg-slate-400 duration-500 text-white font-bold md:py-5 py-3 md:px-8 px-6 mt-4 rounded-xl">
         Book a Meeting
       </button>
     </div>

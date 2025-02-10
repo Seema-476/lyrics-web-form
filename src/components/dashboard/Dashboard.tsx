@@ -5,7 +5,7 @@ import Link from "next/link";
 import CalendlyCustom from "./CalendlyMeet";
 import UploadImages from "./UploadImage";
 import EmplementQuestion from "./EmplementQuestion";
-import { QUESTION_LIST } from "@/utils/helper";
+import { QUESTIONS_DATA } from "@/utils/helper";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -38,8 +38,8 @@ const Dashboard = () => {
         }`}
       >
         <div className="flex flex-col gap-2 relative">
-          <h1 className="mb-3 text-center text-4xl font-semibold">Dashboard</h1>
-          {QUESTION_LIST.map((item, index) => (
+          <h1 className="mb-3 text-4xl font-semibold text-start">Dashboard</h1>
+          {QUESTIONS_DATA.map((item, index) => (
             <Link
               href={`/dashboard?page=${item.toLowerCase().replace(" ", "-")}`}
               key={index}
@@ -47,7 +47,7 @@ const Dashboard = () => {
               className={`${
                 page === item.toLowerCase().replace(" ", "-") &&
                 "bg-white text-black"
-              } py-2 px-3 rounded-lg cursor-pointer hover:bg-white/50 transition-all duration-300 hover:text-black`}
+              } py-2 px-3 rounded-lg cursor-pointer hover:bg-white hover:text-z-black transition-all duration-300`}
             >
               {item}
             </Link>
@@ -60,24 +60,24 @@ const Dashboard = () => {
           Logout
         </button>
       </div>
-      <div className="w-full pt-20">
+      <div className="w-full pt-20 h-screen justify-center flex items-center">
         <div className="bg-blue-300 max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0">
           <button
             onClick={handleOpen}
             className="md:hidden max-md:size-6 relative !z-50 max-md:flex max-md:justify-between max-md:flex-col overflow-hidden"
           >
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 bg-white ${
+              className={`flex w-6 h-0.5 transition-all duration-300 bg-gray ${
                 open === true ? "translate-x-10" : ""
               }`}
             ></span>
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 relative bg-white after:absolute after:w-full after:h-full after:bg-white after:left-0 after:top-0 after:transition-all after:duration-300 ${
+              className={`flex w-6 h-0.5 transition-all duration-300 relative bg-gray after:absolute after:w-full after:h-full after:bg-gray after:left-0 after:top-0 after:transition-all after:duration-300 ${
                 open === true ? "rotate-45 after:rotate-90" : ""
               }`}
             ></span>
             <span
-              className={`flex w-6 h-0.5 transition-all duration-300 bg-white ${
+              className={`flex w-6 h-0.5 transition-all duration-300 bg-gray ${
                 open === true ? "-translate-x-10" : ""
               }`}
             ></span>

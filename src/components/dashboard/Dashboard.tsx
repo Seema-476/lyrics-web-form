@@ -73,7 +73,7 @@ const Dashboard = () => {
             ></span>
             <span
               className={`flex w-6 h-0.5 transition-all duration-300 relative bg-gray after:absolute after:w-full after:h-full after:bg-gray after:left-0 after:top-0 after:transition-all after:duration-300 ${
-                open === true ? "rotate-45 after:rotate-90" : ""
+                open === true ? "rotate-45 after:rotate-90 bg-red-400" : ""
               }`}
             ></span>
             <span

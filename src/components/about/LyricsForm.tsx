@@ -165,7 +165,7 @@ const LyricsForm = () => {
             >
               Sign In
             </button>
-            <div className="pt-[11px] pb-3 bg-white w-full mt-[6px] rounded-[9px] border border-light-gray flex items-center gap-[10px] justify-center">
+            <div className="pt-[11px] pb-3 bg-white w-full mt-[6px] rounded-[9px] border border-silver-gray flex items-center gap-[10px] justify-center">
               <Image
                 src="/assets/images/svg/google-svg.svg"
                 alt="google-icon"

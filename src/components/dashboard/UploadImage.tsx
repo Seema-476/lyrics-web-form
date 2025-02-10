@@ -42,7 +42,7 @@ const UploadImages = () => {
               className="w-full size-24 object-cover rounded-lg"
             />
             <button
-              className="absolute top-1 right-1 bg-black text-white z-50  p-1 rounded-full opacity-75 group-hover:opacity-100"
+              className="absolute top-1 right-1 bg-black text-white  p-1 rounded-full opacity-75 group-hover:opacity-100"
               onClick={() => removeImage(index)}
             >
               X

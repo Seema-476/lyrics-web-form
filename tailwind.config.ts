@@ -8,19 +8,6 @@ export default {
   ],
   theme: {
     extend: {
-      // screens: {
-      //   "3xl": "1921px",
-      // },
-      // container: {
-      //   center: true,
-      //   padding: "16px",
-      //   screens: {
-      //     sm: "640px",
-      //     md: "768px",
-      //     lg: "1024px",
-      //     xl: "1172px",
-      //   },
-      // },
       colors: {
         "levender": "#fafaff",
         "z-black": "#2E2F37",

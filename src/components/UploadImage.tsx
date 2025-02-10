@@ -22,9 +22,10 @@ const UploadImages = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
-      <label className="block border-2 border-dashed border-gray-400 p-6 text-center cursor-pointer rounded-lg hover:border-gray-600">
-        <span className="text-white">Click to upload images</span>
+   <div className="">
+     <div className="p-4 max-w-lg mx-auto">
+      <label className="block border-2 border-dashed border-silver-gray p-6 text-center cursor-pointer rounded-lg hover:border-gray-600">
+        <span className="text-black">Click to upload images</span>
         <input
           type="file"
           multiple
@@ -39,7 +40,7 @@ const UploadImages = () => {
             <img
               src={img.url}
               alt={`Uploaded preview ${index}`}
-              className="w-full h-24 object-cover rounded-lg"
+              className="w-full size-24 object-cover rounded-lg"
             />
             <button
               className="absolute top-1 right-1 bg-black text-white p-1 rounded-full opacity-75 group-hover:opacity-100"
@@ -51,6 +52,7 @@ const UploadImages = () => {
         ))}
       </div>
     </div>
+   </div>
   );
 };
 

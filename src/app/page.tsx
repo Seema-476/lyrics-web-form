@@ -1,12 +1,11 @@
-// import LyricsWebForm from "@/components/LyricsWebForm";
-
 import Dashboard from "@/components/Dashboard";
+import UploadImages from "@/components/UploadImage";
 
 export default function Home() {
   return (
     <>
-    {/* <LyricsWebForm/> */}
     <Dashboard/>
+    <UploadImages/>
     </>
   );
 }

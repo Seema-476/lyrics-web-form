@@ -9,7 +9,7 @@ const LyricsForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(false);
-    const [error, setError] = useState({ email: "", password: "" });
+    const [error, setError] = useState({ email: "", password: "",remember:"" });
   
     useEffect(() => {
       localStorage.setItem("email", email);
@@ -25,7 +25,7 @@ const LyricsForm = () => {
   
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
-      setError({ email: "", password: "" });
+      setError({ email: "", password: "" ,remember:""});
   
       const emailSyntax = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
@@ -46,6 +46,10 @@ const LyricsForm = () => {
   
       if (password.length < 6) {
         setError((prev) => ({ ...prev, password: "Password must have a minimum of 6 characters" }));
+        return;
+      }
+      if (!remember) {
+        setError((prev) => ({ ...prev, remember: "Please select 'Remember for 30 days'" }));
         return;
       }
   
@@ -137,7 +141,7 @@ const LyricsForm = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                onFocus={() => setError((prev) => ({ ...prev, password: "" }))} // Clear error when focus
+                onFocus={() => setError((prev) => ({ ...prev, password: "" }))} 
                 placeholder="Password"
                 className={`px-[14px] py-5 outline-none w-[456px] rounded-lg border max-md:w-[320px] shadow-custom-xl font-normal text-sm leading-6 placeholder:text-gray ${error.password ? "border-red-500" : "border-silver-gray"
                   }`}
@@ -159,6 +163,7 @@ const LyricsForm = () => {
               </label>
               <p className="font-inter text-base font-normal text-blue">Forgot password</p>
             </div>
+            {error.remember && <p className="text-red-500 pt-2">{error.remember}</p>}
             <button
               type="submit"
               className="pt-[9px] pb-[10px] font-medium text-white text-sm leading-6 bg-dusk-black w-full mt-6 hover:bg-green-600 transition-all duration-300 rounded-[9px]"

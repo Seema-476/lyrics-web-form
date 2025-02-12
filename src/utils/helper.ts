@@ -14,6 +14,6 @@ export const FORM_FIELDS = [
     id: "password",
     label: "Password",
     type: "password",
-    placeholder: "........",
+    placeholder: "••••••••",
   },
 ];

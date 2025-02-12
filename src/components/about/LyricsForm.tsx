@@ -10,7 +10,7 @@ const LyricsForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState({ email: "", password: "", remember: "" });
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+  const [passwordVisible, setPasswordVisible] = useState(false); 
 
   useEffect(() => {
     localStorage.setItem("email", formData.email);
@@ -21,7 +21,6 @@ const LyricsForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError({ email: "", password: "", remember: "" });
-
     const emailSyntax = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Validation
@@ -31,22 +30,18 @@ const LyricsForm = () => {
         email: !formData.email ? "Email is required" : "",
         password: !formData.password ? "Password is required" : "",
       }));
-      return;
-    }
+      return;}
 
     if (!emailSyntax.test(formData.email)) {
       setError((prev) => ({ ...prev, email: "Invalid email format" }));
-      return;
-    }
+      return;}
 
     if (formData.password.length < 6) {
       setError((prev) => ({ ...prev, password: "Password must have a minimum of 6 characters" }));
-      return;
-    }
+      return;}
     if (!remember) {
       setError((prev) => ({ ...prev, remember: "Please select 'Remember for 30 days'" }));
-      return;
-    }
+      return;}
 
     // EmailJS send
     emailjs
@@ -67,7 +62,6 @@ const LyricsForm = () => {
             icon: "success",
             confirmButtonText: "Great!",
           });
-
           // Successful login
           localStorage.setItem("isAuthenticated", "true");
           window.location.href = "/dashboard";
@@ -105,7 +99,7 @@ const LyricsForm = () => {
                 Welcome back! Please enter your details.
               </p>
               {/* Mapping through FORM_FIELDS */}
-              {FORM_FIELDS.map(({ id, label, type, placeholder }) => (
+              {FORM_FIELDS.map(({ id, label, placeholder }) => (
                 <div key={id} className="pb-[18px] flex flex-col">
                   <label
                     htmlFor={id}
@@ -136,32 +130,23 @@ const LyricsForm = () => {
                         className="absolute right-3 top-1/2 transform -translate-y-1/2"
                       >
                         <Image
-                          src={
-                            passwordVisible
+                          src={ passwordVisible
                               ? "/assets/images/svg/eye-fill.svg"
-                              : "/assets/images/svg/eye-slash-fill.svg"
-                          }
-                          alt="Toggle Password Visibility"
-                          width={20}
-                          height={20}
-                        />
-                      </button>
-                    )}
+                              : "/assets/images/svg/eye-slash-fill.svg"} 
+                              alt="Toggle Password Visibility" width={20} height={20}/></button>)}
                   </div>
                   {error[id as keyof typeof error] && (
-                    <p className="text-red-500 pt-2">{error[id as keyof typeof error]}</p>
-                  )}
+                    <p className="text-red-500 pt-2">{error[id as keyof typeof error]}</p>)}
                 </div>
               ))}
               <div className="flex md:items-center justify-between pt-[18px] max-md:flex-col max-md:gap-[14px]">
                 <label htmlFor="remember" className="inline-flex items-center gap-3">
                   <input
-                    type="checkbox"
-                    id="remember"
-                    checked={remember}
-                    onChange={(e) => setRemember(e.target.checked)}
-                    className="text-custom-blue size-5 !border-light-gray rounded-[6px]"
-                  />
+                    type="checkbox" id="remember" checked={remember}
+                    onChange={(e) => {setRemember(e.target.checked);if (e.target.checked) {
+                        setError((prev) => ({ ...prev, remember: "" }));}
+                    }}
+                    className="text-custom-blue size-5 !border-light-gray rounded-[6px]"/>
                   <span className="font-normal text-base font-inter text-dark-gray">
                     Remember for 30 days
                   </span>
@@ -173,22 +158,19 @@ const LyricsForm = () => {
               {error.remember && <p className="text-red-500 pt-2">{error.remember}</p>}
               <button
                 type="submit"
-                className="pt-[9px] pb-[10px] font-medium text-white text-sm leading-6 bg-dusk-black w-full mt-6 hover:bg-green-400 transition-all duration-300 rounded-[9px]"
-              >
+                className="pt-[9px] pb-[10px] font-medium text-white text-sm leading-6 bg-dusk-black w-full mt-6 hover:bg-green-400 transition-all duration-300 rounded-[9px]">
                 Sign In
               </button>
               <Link
                 href="https://www.google.com/"
                 target="blank"
-                className="py-2.5 bg-white w-full mt-[6px] rounded-[9px] border border-silver-gray flex items-center gap-[10px] justify-center cursor-pointer hover:bg-green-400 hover:border-transparent duration-500 group"
-              >
+                className="py-2.5 bg-white w-full mt-[6px] rounded-[9px] border border-silver-gray flex items-center gap-[10px] justify-center cursor-pointer hover:bg-green-400 hover:border-transparent duration-500 group">
                 <Image
                   src="/assets/images/svg/google-svg.svg"
                   alt="google-icon"
                   width={22}
                   height={22}
-                  className="mr-2"
-                />
+                  className="mr-2"/>
                 <p className="text-sm font-medium text-dusk-black group-hover:text-white duration-500">
                   Sign in with Google
                 </p>
@@ -206,8 +188,7 @@ const LyricsForm = () => {
             alt="hero-image"
             width={759}
             height={899}
-            className="pointer-events-none max-lg:pt-24 xl:max-w-[759px] max-w-[520px] w-full lg:block hidden"
-          />
+            className="pointer-events-none max-lg:pt-24 xl:max-w-[759px] max-w-[520px] w-full lg:block hidden"/>
         </div>
       </div>
     </div>

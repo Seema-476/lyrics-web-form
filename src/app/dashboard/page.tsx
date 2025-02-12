@@ -1,10 +1,10 @@
-import Dashboard from '@/components/dashboard/Dashboard'
+import Dashboard from './[button]/page'
 import { Suspense } from 'react'
 
 const page = () => {
   return (
     <Suspense>
-    <Dashboard/>
+   <Dashboard/>
     </Suspense>
   )
 }

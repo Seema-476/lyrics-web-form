@@ -16,6 +16,7 @@ export default {
         "dark-gray": "#475467",
         "silver-gray": "#D0D5DD",
         "blue": "#007BFF",
+        "light-blue": "#002BeF",
       },
       lineHeight: {
         "custom-xl": "30px",

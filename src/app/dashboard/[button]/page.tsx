@@ -1,16 +1,16 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter,useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import CalendlyCustom from "./CalendlyMeet";
-import UploadImages from "./UploadImage";
-import EmplementQuestion from "./EmplementQuestion";
+import CalendlyCustom from "../../../components/dashboard/CalendlyMeet";
+import UploadImages from "../../../components/dashboard/UploadImage";
+import EmplementQuestion from "../../../components/dashboard/EmplementQuestion";
 import { QUESTIONS_DATA } from "@/utils/helper";
 
 const Dashboard = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const page = searchParams.get("page");
+  const params = useParams();
+const {button} =params
 
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
@@ -38,14 +38,14 @@ const Dashboard = () => {
         }`}
       >
         <div className="flex flex-col gap-2 relative">
-          <h1 className="mb-3 text-4xl font-semibold text-start">Dashboard</h1>
+          <h1 className="mb-3 text-4xl font-semibold text-start mt-3">Dashboard</h1>
           {QUESTIONS_DATA.map((item, index) => (
             <Link
-              href={`/dashboard?page=${item.toLowerCase().replace(" ", "-")}`}
+              href={`/dashboard/${item.toLowerCase().replace(" ", "-")}`}
               key={index}
               onClick={() => setOpen(false)}
               className={`${
-                page === item.toLowerCase().replace(" ", "-") &&
+                button === item.toLowerCase().replace(" ", "-") &&
                 "bg-white text-black"
               } py-2 px-3 rounded-lg cursor-pointer hover:bg-white hover:text-z-black transition-all duration-300`}
             >
@@ -55,12 +55,12 @@ const Dashboard = () => {
         </div>
         <button
           onClick={handleLogout}
-          className="bg-slate-500 py-2 px-3 rounded-lg text-white"
+          className="bg-red-500 hover:bg-red-700 duration-500 py-2 px-3 rounded-lg text-white"
         >
           Logout
         </button>
       </div>
-      <div className="w-full pt-20 h-screen justify-center flex items-center">
+      <div className="w-full pt-20 h-screen justify-center flex items-center hero">
         <div className="max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0 z-50">
           <button
             onClick={handleOpen}
@@ -83,11 +83,11 @@ const Dashboard = () => {
             ></span>
           </button>
         </div>
-        {page === "button-1" ? (
+        {button === "button-1" ? (
           <EmplementQuestion />
-        ) : page === "button-2" ? (
+        ) : button === "button-2" ? (
           <CalendlyCustom />
-        ) : page === "button-3" ? (
+        ) : button === "button-3" ? (
           <UploadImages/>
         ) : null}
       </div>

@@ -1,17 +1,22 @@
 "use client";
+import { useEffect, useState } from "react";
+import { PopupWidget } from "react-calendly";
 
 const CalendlyMeet = () => {
-  const handelClick = () => {
-    window.open("https://calendly.com/simmybishnoi29085?primary_color=800080", "_blank");
-  };
+  const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    setRootElement(document.body); 
+  }, []);
 
   return (
-    <div className="flex justify-center items-center py-12">
-      <button
-        onClick={handelClick}
-        className="md:text-4xl text-xl bg-gray hover:bg-slate-400 duration-500 text-white font-bold md:py-5 py-3 md:px-8 px-6 mt-4 rounded-xl">
-        Book a Meeting
-      </button>
+    <div className="flex flex-col items-center justify-center py-10 px-4 container">
+      {rootElement && ( 
+        <PopupWidget
+          url="https://calendly.com/simmybishnoi29085?primary_color=800080"
+          rootElement={rootElement}
+          text="Click here to schedule!"
+        />
+      )}
     </div>
   );
 };
